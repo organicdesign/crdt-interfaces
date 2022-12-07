@@ -18,7 +18,10 @@ export interface MVRegister<T> {
 	clear (): void
 }
 
-export type MMap<T> = Omit<Map<string, T>, "clear" | "delete" | typeof Symbol.toStringTag>;
+export interface MMap<T> extends Omit<Map<string, T>, "clear" | "delete" | "set" | typeof Symbol.toStringTag> {
+	set (key: string, value: NonNullable<T>): Map<string, T>
+}
+
 export type BMap<T> = Omit<Map<string, T>, typeof Symbol.toStringTag>;
 
 export type MSet<T> = Omit<Set<T>, "clear" | "delete" | typeof Symbol.toStringTag>;
