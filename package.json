@@ -1,0 +1,11 @@
+{
+	"name": "crdt-interfaces",
+	"types": "src/index",
+	"version": "1.0.0",
+	"author": "Saul Boyd",
+	"license": "GPL-3.0-or-later",
+	"repository": {
+		"type": "git",
+		"url": "ssh://git@code.organicdesign.nz:222/organicdesign/crdt-interfaces.git"
+	}
+}
