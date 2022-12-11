@@ -9,7 +9,7 @@ export interface CRDT {
 }
 
 export interface CRDTConfig {
-	id: string
+	id: Uint8Array
 	generateTimestamp?: () => string
 }
 
