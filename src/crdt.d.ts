@@ -5,6 +5,7 @@ export interface SyncContext {
 }
 
 export interface CRDT {
+	id: Uint8Array
 	sync (data: Uint8Array | undefined, context: SyncContext): Uint8Array | undefined
 	toValue (): unknown
 	serialize? (): Uint8Array
