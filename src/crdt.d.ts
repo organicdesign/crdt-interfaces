@@ -1,7 +1,11 @@
 export type BroadcastHandler = (data: Uint8Array) => void;
 
+export interface SyncContext {
+	id: Uint8Array
+}
+
 export interface CRDT {
-	sync (data?: Uint8Array): Uint8Array | undefined
+	sync (data: Uint8Array | undefined, context: SyncContext): Uint8Array | undefined
 	toValue (): unknown
 	serialize? (): Uint8Array
 	addBroadcaster? (broadcaster: BroadcastHandler): void
