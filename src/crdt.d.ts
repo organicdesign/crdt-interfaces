@@ -9,6 +9,7 @@ export interface CRDT {
 	sync (data: Uint8Array | undefined, context: SyncContext): Uint8Array | undefined
 	toValue (): unknown
 	serialize? (): Uint8Array
+	deserialize? (data: Uint8Array): void
 	addBroadcaster? (broadcaster: BroadcastHandler): void
 	onBroadcast?: BroadcastHandler
 }
@@ -19,5 +20,3 @@ export interface CRDTConfig {
 }
 
 export type CreateCRDT<T extends CRDT=CRDT> = (config: CRDTConfig) => T;
-
-export type Deserialize<T extends CRDT=CRDT> = (data: Uint8Array) => T;
