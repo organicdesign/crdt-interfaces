@@ -30,14 +30,6 @@ import type { CreateCRDT } from "crdt-interfaces";
 
 This type is for a general purpose CRDT generator function.
 
-#### Deserialize
-
-```typescript
-import type { Deserialize } from "crdt-interfaces";
-```
-
-This type is for functions to deserialize data that was serialized from the CRDT itself back into an instance of the CRDT.
-
 ### Data Type Specific
 
 Data types generally have two types of prefixes: 'M' for 'Monotonic' and 'B' for "Bitonic". The Monotonic variations are types that are only increasing and therefore do not have methods for deletion/reduction. The Bitonic variations are types that can both increase and decrease, so they will include the methods for deletion/reduction. The interfaces where applicable were based of the native types for easy replacements of local types.
