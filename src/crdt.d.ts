@@ -2,6 +2,7 @@ export type BroadcastHandler = (data: Uint8Array) => void;
 
 export interface SyncContext {
 	id: Uint8Array
+	syncId: number
 }
 
 export interface CRDT {
