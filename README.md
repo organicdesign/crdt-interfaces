@@ -32,7 +32,7 @@ This type is for a general purpose CRDT generator function.
 
 ### Data Type Specific
 
-Data types generally have two types of prefixes: 'M' for 'Monotonic' and 'B' for "Bitonic". The Monotonic variations are types that are only increasing and therefore do not have methods for deletion/reduction. The Bitonic variations are types that can both increase and decrease, so they will include the methods for deletion/reduction. The interfaces where applicable were based of the native types for easy replacements of local types.
+Data types generally have three types of prefixes: 'M' for 'Monotonic', 'B' for 'Bitonic' and 'MV' for 'MultiValue'. The Monotonic variations are types that are only increasing and therefore do not have methods for deletion/reduction. The Bitonic variations are types that can both increase and decrease, so they will include the methods for deletion/reduction. The MultiValue variations are types that return an array of values instead of a singular value so that CRDTs that only rely on logical time can return all values that occur at the same time and allow the client do decide how to handle it. The interfaces where applicable were based of the native types for easy replacements of local types.
 
 #### MCounter
 
@@ -81,6 +81,14 @@ import type { BMap } from "crdt-interfaces";
 ```
 
 An interface based of the native Map type, modified for a map that can both assign and clear key/value pairs such as LWWMap.
+
+#### MVMap
+
+```typescript
+import type { MVMap } from "crdt-interfaces";
+```
+
+An interface based of the native Map type, modified for a map that can hold and return multiple values that are set at the same time.
 
 #### Register
 
