@@ -18,6 +18,15 @@ export interface MVRegister<T> {
 	clear (): void
 }
 
+export interface MVMap<T> extends Omit<Map<string, T>, "get" | "forEach" | "get" | "set" | "entries" | "values" | typeof Symbol.iterator | typeof Symbol.toStringTag> {
+	[Symbol.iterator](): IterableIterator<[string, T[]]>
+	forEach(callbackfn: (value: T[], key: string, map: Map<string, T[]>) => void, thisArg?: any): void
+	get(key: string): T[] | undefined
+	set(key: string, value: T): Map<string, T[]>
+	entries(): IterableIterator<[string, T[]]>
+	values(): IterableIterator<T[]>
+}
+
 export interface MMap<T> extends Omit<Map<string, T>, "clear" | "delete" | "set" | typeof Symbol.toStringTag> {
 	set (key: string, value: NonNullable<T>): Map<string, T>
 }
