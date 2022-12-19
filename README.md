@@ -90,10 +90,10 @@ import type { MVMap } from "crdt-interfaces";
 
 An interface based of the native Map type, modified for a map that can hold and return multiple values that are set at the same time.
 
-#### Register
+#### BRegister
 
 ```typescript
-import type { Register } from "crdt-interfaces";
+import type { BRegister } from "crdt-interfaces";
 ```
 
 An interface for a register.

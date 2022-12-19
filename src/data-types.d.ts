@@ -6,7 +6,7 @@ export interface BCounter extends MCounter {
 	decrement (quantity: number): void
 }
 
-export interface Register<T> {
+export interface BRegister<T> {
 	get (): T | undefined
 	set (value: T): void
 	clear (): void
