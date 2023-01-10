@@ -1,7 +1,7 @@
 {
 	"name": "@organicdesign/crdt-interfaces",
 	"types": "src/index",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Interfaces and types for various CRDTs to make compatibility between systems easier.",
 	"author": "Saul Boyd",
 	"license": "GPL-3.0-or-later",

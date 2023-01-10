@@ -1,4 +1,4 @@
-# @organicdesign/crdt-interfaces
+# crdt-interfaces
 
 Interfaces and types for various CRDTs to make compatibility between systems easier.
 
