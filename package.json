@@ -1,11 +1,13 @@
 {
-	"name": "crdt-interfaces",
+	"name": "@organicdesign/crdt-interfaces",
 	"types": "src/index",
 	"version": "1.0.0",
+	"description": "Interfaces and types for various CRDTs to make compatibility between systems easier.",
 	"author": "Saul Boyd",
 	"license": "GPL-3.0-or-later",
+	"homepage": "https://code.organicdesign.nz/organicdesign/crdt-interfaces",
 	"repository": {
 		"type": "git",
-		"url": "ssh://git@code.organicdesign.nz:222/organicdesign/crdt-interfaces.git"
+		"url": "https://github.com/organicdesign/crdt-interfaces.git"
 	}
 }
