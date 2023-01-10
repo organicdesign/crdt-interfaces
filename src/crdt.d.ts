@@ -17,7 +17,7 @@ export interface CRDT {
 
 export interface CRDTConfig {
 	id: Uint8Array
-	generateTimestamp?: () => string
+	generateTimestamp?: () => number
 }
 
 export type CreateCRDT<T extends CRDT=CRDT> = (config: CRDTConfig) => T;
