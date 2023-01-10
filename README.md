@@ -1,6 +1,12 @@
-# crdt-interfaces
+# @organicdesign/crdt-interfaces
 
 Interfaces and types for various CRDTs to make compatibility between systems easier.
+
+## Install
+
+```
+npm i --save-dev @organicdesign/crdt-interfaces
+```
 
 ## Types and Interfaces
 
@@ -9,7 +15,7 @@ Interfaces and types for various CRDTs to make compatibility between systems eas
 #### CRDT
 
 ```typescript
-import type { CRDT } from "crdt-interfaces";
+import type { CRDT } from "@organicdesign/crdt-interfaces";
 ```
 
 The CRDT interface is a generalized interface that provides the minimum methods needed to replicate itself across instances to make it easy to create systems that can handle any CRDT following this interface. The interface also provides optional methods for features that are not stictly needed to ensure synchronization such as serialization and broadcasting.
@@ -17,7 +23,7 @@ The CRDT interface is a generalized interface that provides the minimum methods 
 #### CRDTConfig
 
 ```typescript
-import type { CRDTConfig } from "crdt-interfaces";
+import type { CRDTConfig } from "@organicdesign/crdt-interfaces";
 ```
 
 This interface is a general purpose configuration object that many CRDTs will need to be created or instantiated.
@@ -25,7 +31,7 @@ This interface is a general purpose configuration object that many CRDTs will ne
 #### CreateCRDT
 
 ```typescript
-import type { CreateCRDT } from "crdt-interfaces";
+import type { CreateCRDT } from "@organicdesign/crdt-interfaces";
 ```
 
 This type is for a general purpose CRDT generator function.
@@ -37,7 +43,7 @@ Data types generally have three types of prefixes: 'M' for 'Monotonic', 'B' for 
 #### MCounter
 
 ```typescript
-import type { MCounter } from "crdt-interfaces";
+import type { MCounter } from "@organicdesign/crdt-interfaces";
 ```
 
 An interface for a monotonicly increasing counter such as GCounter.
@@ -45,7 +51,7 @@ An interface for a monotonicly increasing counter such as GCounter.
 #### BCounter
 
 ```typescript
-import type { BCounter } from "crdt-interfaces";
+import type { BCounter } from "@organicdesign/crdt-interfaces";
 ```
 
 An interface for a counter that can increase and decrease such as PNCounter
@@ -53,7 +59,7 @@ An interface for a counter that can increase and decrease such as PNCounter
 #### MSet
 
 ```typescript
-import type { MSet } from "crdt-interfaces";
+import type { MSet } from "@organicdesign/crdt-interfaces";
 ```
 
 An interface based of the native Set type, modified for a grow only set such as GSet.
@@ -61,7 +67,7 @@ An interface based of the native Set type, modified for a grow only set such as 
 #### BSet
 
 ```typescript
-import type { BSet } from "crdt-interfaces";
+import type { BSet } from "@organicdesign/crdt-interfaces";
 ```
 
 An interface based of the native Set type, modified for a set that can grow and shrink such as 2PSet or ORSet.
@@ -69,7 +75,7 @@ An interface based of the native Set type, modified for a set that can grow and 
 #### MMap
 
 ```typescript
-import type { MMap } from "crdt-interfaces";
+import type { MMap } from "@organicdesign/crdt-interfaces";
 ```
 
 An interface based of the native Map type, modified for a map that can only assign key/value pairs such as CRDTMap.
@@ -77,7 +83,7 @@ An interface based of the native Map type, modified for a map that can only assi
 #### BMap
 
 ```typescript
-import type { BMap } from "crdt-interfaces";
+import type { BMap } from "@organicdesign/crdt-interfaces";
 ```
 
 An interface based of the native Map type, modified for a map that can both assign and clear key/value pairs such as LWWMap.
@@ -85,7 +91,7 @@ An interface based of the native Map type, modified for a map that can both assi
 #### MVMap
 
 ```typescript
-import type { MVMap } from "crdt-interfaces";
+import type { MVMap } from "@organicdesign/crdt-interfaces";
 ```
 
 An interface based of the native Map type, modified for a map that can hold and return multiple values that are set at the same time.
@@ -93,7 +99,7 @@ An interface based of the native Map type, modified for a map that can hold and 
 #### BRegister
 
 ```typescript
-import type { BRegister } from "crdt-interfaces";
+import type { BRegister } from "@organicdesign/crdt-interfaces";
 ```
 
 An interface for a register.
@@ -101,7 +107,7 @@ An interface for a register.
 #### MVRegister
 
 ```typescript
-import type { MVRegister } from "crdt-interfaces";
+import type { MVRegister } from "@organicdesign/crdt-interfaces";
 ```
 
 An interface for a multi-value register.
