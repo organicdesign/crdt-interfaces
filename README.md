@@ -18,7 +18,7 @@ npm i --save-dev @organicdesign/crdt-interfaces
 import type { CRDT } from "@organicdesign/crdt-interfaces";
 ```
 
-The CRDT interface is a generalized interface that provides the minimum methods needed to replicate itself across instances to make it easy to create systems that can handle any CRDT following this interface. The interface also provides optional methods for features that are not stictly needed to ensure synchronization such as serialization and broadcasting.
+The CRDT interface is a generalized interface that provides the minimum methods needed to replicate itself across instances to make it easy to create systems that can handle any CRDT following this interface. The interface also provides optional methods for features that are not stictly needed to ensure synchronization such as serialization and broadcasting. The main part of this interface is the `sync` method which defines the actual synchronization protocol between instances.
 
 #### CRDTConfig
 
