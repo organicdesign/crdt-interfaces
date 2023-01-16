@@ -2,6 +2,25 @@
 
 Interfaces and types for various CRDTs to make compatibility between systems easier.
 
+## Table of Contents
+
+- [Install](#install)
+- [Types and Interfaces](#types-and-interfaces)
+  - [CRDT Specific](#crdt-specific)
+    - [CRDT](#crdt)
+    - [CRDTConfig](#crdtconfig)
+    - [CreateCRDT](#createcrdt)
+  - [Data Type Specific](#data-type-specific)
+    - [MCounter](#mcounter)
+    - [BCounter](#bcounter)
+    - [MSet](#mset)
+    - [BSet](#bset)
+    - [MMap](#mmap)
+    - [BMap](#bmap)
+    - [MVMap](#mvmap)
+    - [BRegister](#bregister)
+    - [MVRegister](#mvregister)
+
 ## Install
 
 ```

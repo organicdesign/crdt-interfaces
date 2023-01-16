@@ -1,8 +1,9 @@
 {
 	"name": "@organicdesign/crdt-interfaces",
 	"types": "src/index",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "Interfaces and types for various CRDTs to make compatibility between systems easier.",
+	"keywords": ["libp2p", "interface", "crdt"],
 	"author": "Saul Boyd",
 	"license": "GPL-3.0-or-later",
 	"homepage": "https://code.organicdesign.nz/organicdesign/crdt-interfaces",

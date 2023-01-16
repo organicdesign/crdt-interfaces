@@ -1,3 +1,9 @@
+## [2.0.2](https://github.com/organicdesign/crdt-interfaces/compare/v2.0.1...v2.0.2) (2023-01-17)
+
+### Added
+
+* Add table of contents to readme.
+
 ## [2.0.1](https://github.com/organicdesign/crdt-interfaces/compare/v2.0.0...v2.0.1) (2023-01-12)
 
 ### Added
