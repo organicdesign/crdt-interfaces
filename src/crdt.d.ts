@@ -27,3 +27,4 @@ export interface CRDTConfig {
 }
 
 export type CreateCRDT<T extends CRDT=CRDT> = (config: CRDTConfig) => T;
+export type CreateSynchronizer<T extends CRDTSynchronizer=CRDTSynchronizer> = (options?: Record<string, any>)  => T
