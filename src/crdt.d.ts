@@ -5,9 +5,15 @@ export interface SyncContext {
 	syncId: number
 }
 
+export interface CRDTSynchronizer {
+	protocol: string,
+	sync (data: Uint8Array | undefined, context: SyncContext): Uint8Array | undefined
+}
+
 export interface CRDT {
 	id: Uint8Array
-	sync (data: Uint8Array | undefined, context: SyncContext): Uint8Array | undefined
+	getProtocols (): Iterable<string>
+	getSynchronizer (protocol: string): CRDTSynchronizer | undefined
 	toValue (): unknown
 	serialize? (): Uint8Array
 	deserialize? (data: Uint8Array): void
