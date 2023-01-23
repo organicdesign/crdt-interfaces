@@ -9,7 +9,7 @@ export interface CRDTSynchronizer {
 	sync (data: Uint8Array | undefined, context: SyncContext): Uint8Array | undefined
 }
 
-export type CreateSynchronizer<T extends CRDTSynchronizer=CRDTSynchronizer> = (components?: Record<string, any>) => T
+export type CreateSynchronizer<T extends CRDTSynchronizer=CRDTSynchronizer> = (components?: Record<string, unknown>) => T
 
 // Broadcast
 export interface BroadcastData {
@@ -27,6 +27,15 @@ export interface CRDTBroadcaster {
 
 export type CreateBroadcaster<T extends CRDTBroadcaster=CRDTBroadcaster> = () => T
 
+// Serialize
+export interface CRDTSerializer {
+	protocol: string
+	serialize (): Uint8Array
+	deserialize (data: Uint8Array): void
+}
+
+export type CreateSeralizer<T extends CRDTSerializer=CRDTSerializer> = () => T
+
 // CRDT
 export interface CRDT {
 	id: Uint8Array
@@ -41,8 +50,8 @@ export interface CRDT {
 	onBroadcast?: BroadcastHandler
 
 	// Serialize
-	serialize? (): Uint8Array
-	deserialize? (data: Uint8Array): void
+	getSerializeProtocols (): Iterable<string>
+	getSerializer (protocol: string): CRDTSerializer
 }
 
 export interface CRDTConfig {
@@ -50,6 +59,7 @@ export interface CRDTConfig {
 	generateTimestamp?: () => number
 	synchronizers: CreateSynchronizer[]
 	broadcasters: CreateBroadcaster[]
+	serializers: CreateSeralizer[]
 }
 
 export type CreateCRDT<T extends CRDT=CRDT> = (config: CRDTConfig) => T;
