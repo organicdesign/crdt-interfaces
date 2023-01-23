@@ -42,16 +42,16 @@ export interface CRDT {
 	toValue (): unknown
 
 	// Sync
-	getProtocols (): Iterable<string>
-	getSynchronizer (protocol: string): CRDTSynchronizer | undefined
+	getSynchronizerProtocols? (): Iterable<string>
+	getSynchronizer? (protocol: string): CRDTSynchronizer | undefined
 
 	// Broadcast
-	addBroadcaster? (broadcaster: BroadcastHandler): void
-	onBroadcast?: BroadcastHandler
+	getBroadcastProtocols? (): Iterable<string>
+	getBroadCaster? (protocol: string): CRDTBroadcaster
 
 	// Serialize
-	getSerializeProtocols (): Iterable<string>
-	getSerializer (protocol: string): CRDTSerializer
+	getSerializeProtocols? (): Iterable<string>
+	getSerializer? (protocol: string): CRDTSerializer
 }
 
 export interface CRDTConfig {
