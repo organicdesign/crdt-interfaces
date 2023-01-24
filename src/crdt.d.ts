@@ -60,9 +60,9 @@ export interface CRDT {
 export interface CRDTConfig {
 	id: Uint8Array
 	generateTimestamp?: () => number
-	synchronizers?: CreateSynchronizer[]
-	broadcasters?: CreateBroadcaster[]
-	serializers?: CreateSeralizer[]
+	synchronizers?: Iterable<CreateSynchronizer>
+	broadcasters?: Iterable<CreateBroadcaster>
+	serializers?: Iterable<CreateSeralizer>
 }
 
 export type CreateCRDT<T extends CRDT=CRDT> = (config: CRDTConfig) => T;
