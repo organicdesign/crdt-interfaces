@@ -1,13 +1,23 @@
-## [3.0.0](https://github.com/organicdesign/crdt-interfaces/compare/v2.0.2...v3.0.0) (TBA)
+## Unreleased
 
 ### Added
 
-* `CRDTSynchronizer` type.
-* Added `getProtocols` and `getSynchronizer` method types to `CRDT` type.
+* CRDT module types:
+  * `CRDTSynchronizer`
+  * `CRDTBroadcaster`
+  * `CRDTSerializer`
+* CRDT variations:
+  * `SynchronizableCRDT`
+  * `BroadcastableCRDT`
+  * `SerializableCRDT`
 
 ### Removed
 
-* Removed `sync` Method from `CRDT` type.
+* Removed methods from `CRDT` type:
+  * `sync`
+  * `serialize`
+  * `addBroadcaster`
+  * `onBroadcast`
 
 ## [2.0.2](https://github.com/organicdesign/crdt-interfaces/compare/v2.0.1...v2.0.2) (2023-01-17)
 
