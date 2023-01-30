@@ -1,6 +1,8 @@
 {
 	"name": "@organicdesign/crdt-interfaces",
-	"types": "src/index",
+	"type": "module",
+	"main": "dist/index.js",
+  "types": "dist/index.d.ts",
 	"version": "4.0.0-alpha.1.0",
 	"description": "Interfaces and types for various CRDTs to make compatibility between systems easier.",
 	"keywords": [
@@ -14,5 +16,13 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/organicdesign/crdt-interfaces.git"
+	},
+	"scripts": {
+		"build": "mkdir -p dist && touch dist/cleanup && rm dist/* && tsc -b",
+		"lint": "eslint ./src/* --fix"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.42.1",
+		"@typescript-eslint/parser": "^5.42.1"
 	}
 }
