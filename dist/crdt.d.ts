@@ -24,7 +24,7 @@ export interface CRDTBroadcaster {
 export type CreateBroadcaster<T extends CRDTBroadcaster = CRDTBroadcaster> = () => T;
 export interface BroadcastableCRDT extends CRDT {
     getBroadcastProtocols(): Iterable<string>;
-    getBroadCaster(protocol: string): CRDTBroadcaster;
+    getBroadcaster(protocol: string): CRDTBroadcaster | undefined;
 }
 export interface CRDTSerializer {
     protocol: string;
@@ -34,7 +34,7 @@ export interface CRDTSerializer {
 export type CreateSeralizer<T extends CRDTSerializer = CRDTSerializer> = () => T;
 export interface SerializableCRDT extends CRDT {
     getSerializeProtocols(): Iterable<string>;
-    getSerializer(protocol: string): CRDTSerializer;
+    getSerializer(protocol: string): CRDTSerializer | undefined;
 }
 export interface CRDT {
     id: Uint8Array;
