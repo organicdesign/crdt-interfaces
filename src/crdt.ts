@@ -30,7 +30,7 @@ export interface CRDTBroadcaster {
 	setBroadcast: (broadcast: BroadcastHandler) => void
 }
 
-export type CreateBroadcaster<T extends CRDTBroadcaster=CRDTBroadcaster> = () => T
+export type CreateBroadcaster<T extends CRDTBroadcaster=CRDTBroadcaster> = (components?: Record<string, unknown>) => T
 
 export interface BroadcastableCRDT extends CRDT {
 	getBroadcastProtocols (): Iterable<string>
@@ -44,7 +44,7 @@ export interface CRDTSerializer {
 	deserialize (data: Uint8Array): void
 }
 
-export type CreateSeralizer<T extends CRDTSerializer=CRDTSerializer> = () => T
+export type CreateSerializer<T extends CRDTSerializer=CRDTSerializer> = (components?: Record<string, unknown>) => T
 
 export interface SerializableCRDT extends CRDT {
 	getSerializeProtocols (): Iterable<string>
@@ -62,7 +62,7 @@ export interface CRDTConfig {
 	generateTimestamp?: () => number
 	synchronizers?: Iterable<CreateSynchronizer>
 	broadcasters?: Iterable<CreateBroadcaster>
-	serializers?: Iterable<CreateSeralizer>
+	serializers?: Iterable<CreateSerializer>
 }
 
 export type CreateCRDT<T extends CRDT=CRDT> = (config: CRDTConfig) => T;
