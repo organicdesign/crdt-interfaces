@@ -22,12 +22,12 @@ export interface BroadcastData {
 	data: Uint8Array
 }
 
-export type BroadcastHandler = (data: BroadcastData) => void;
+export type BroadcastHandler = (data: Uint8Array) => void;
 
 export interface CRDTBroadcaster {
 	protocol: string
-	addBroadcaster (broadcaster: BroadcastHandler): void
 	onBroadcast: BroadcastHandler
+	setBroadcast: (broadcast: BroadcastHandler) => void
 }
 
 export type CreateBroadcaster<T extends CRDTBroadcaster=CRDTBroadcaster> = () => T
