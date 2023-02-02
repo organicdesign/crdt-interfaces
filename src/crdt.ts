@@ -12,16 +12,10 @@ export interface CRDTSynchronizer {
 export type CreateSynchronizer<T extends CRDTSynchronizer=CRDTSynchronizer> = (components?: Record<string, unknown>) => T
 
 export interface SynchronizableCRDT extends CRDT {
-	getSynchronizerProtocols (): Iterable<string>
-	getSynchronizer (protocol: string): CRDTSynchronizer | undefined
+	getSynchronizers (): Iterable<CRDTSynchronizer>
 }
 
 // Broadcast
-export interface BroadcastData {
-	protocol: string
-	data: Uint8Array
-}
-
 export type BroadcastHandler = (data: Uint8Array) => void;
 
 export interface CRDTBroadcaster {
@@ -33,8 +27,7 @@ export interface CRDTBroadcaster {
 export type CreateBroadcaster<T extends CRDTBroadcaster=CRDTBroadcaster> = (components?: Record<string, unknown>) => T
 
 export interface BroadcastableCRDT extends CRDT {
-	getBroadcastProtocols (): Iterable<string>
-	getBroadcaster (protocol: string): CRDTBroadcaster | undefined
+	getBroadcasters (): Iterable<CRDTBroadcaster>
 }
 
 // Serialize
@@ -47,8 +40,7 @@ export interface CRDTSerializer {
 export type CreateSerializer<T extends CRDTSerializer=CRDTSerializer> = (components?: Record<string, unknown>) => T
 
 export interface SerializableCRDT extends CRDT {
-	getSerializeProtocols (): Iterable<string>
-	getSerializer (protocol: string): CRDTSerializer | undefined
+	getSerializers (): Iterable<CRDTSerializer>
 }
 
 // CRDT
@@ -66,3 +58,9 @@ export interface CRDTConfig {
 }
 
 export type CreateCRDT<T extends CRDT=CRDT> = (config: CRDTConfig) => T;
+
+// General
+export interface ProtocolData {
+	protocol: string
+	data: Uint8Array
+}
