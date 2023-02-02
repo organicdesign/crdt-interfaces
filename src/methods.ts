@@ -1,4 +1,12 @@
-import type { CRDT, SynchronizableCRDT, SerializableCRDT, BroadcastableCRDT } from "./crdt";
+import type {
+	CRDT,
+	SynchronizableCRDT,
+	SerializableCRDT,
+	BroadcastableCRDT,
+	CRDTSynchronizer,
+	CRDTSerializer,
+	CRDTBroadcaster
+} from "./crdt";
 
 export const isSynchronizable = (crdt: CRDT): boolean => !!crdt["getSynchronizers"];
 
@@ -14,3 +22,31 @@ export const isBroadcastable = (crdt: CRDT): boolean => !!crdt["getBroadcasters"
 
 export const toBroadcastable = (crdt: CRDT): BroadcastableCRDT | null =>
 	isBroadcastable(crdt) ? crdt as BroadcastableCRDT : null;
+
+const createModuleGetter = <T extends CRDT, M extends CRDTSynchronizer | CRDTSerializer | CRDTBroadcaster>(
+	toType: (crdt: CRDT) => T | null,
+	getModuleIterable: (crdt: T) => Iterable<M>
+) => (crdt: CRDT, protocol: string,): M | null => {
+	const asType = toType(crdt);
+
+	if (asType == null) {
+		return null;
+	}
+
+	for (const module of getModuleIterable(asType)) {
+		if (module.protocol === protocol) {
+			return module;
+		}
+	}
+
+	return null;
+}
+
+export const getSynchronizer: (crdt: CRDT, protocol: string) => CRDTSynchronizer | null =
+	createModuleGetter(toSynchronizable, crdt => crdt.getSynchronizers());
+
+export const getBroadcaster: (crdt: CRDT, protocol: string) => CRDTBroadcaster | null =
+	createModuleGetter(toBroadcastable, crdt => crdt.getBroadcasters());
+
+export const getSerializer: (crdt: CRDT, protocol: string) => CRDTSerializer | null =
+	createModuleGetter(toSerializable, crdt => crdt.getSerializers());
