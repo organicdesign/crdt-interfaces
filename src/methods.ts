@@ -26,7 +26,7 @@ export const toBroadcastable = (crdt: CRDT): BroadcastableCRDT | null =>
 const createModuleGetter = <T extends CRDT, M extends CRDTSynchronizer | CRDTSerializer | CRDTBroadcaster>(
 	toType: (crdt: CRDT) => T | null,
 	getModuleIterable: (crdt: T) => Iterable<M>
-) => (crdt: CRDT, protocol: string,): M | null => {
+) => (crdt: CRDT, protocol: string): M | null => {
 	const asType = toType(crdt);
 
 	if (asType == null) {
@@ -40,7 +40,7 @@ const createModuleGetter = <T extends CRDT, M extends CRDTSynchronizer | CRDTSer
 	}
 
 	return null;
-}
+};
 
 export const getSynchronizer: (crdt: CRDT, protocol: string) => CRDTSynchronizer | null =
 	createModuleGetter(toSynchronizable, crdt => crdt.getSynchronizers());
@@ -50,3 +50,25 @@ export const getBroadcaster: (crdt: CRDT, protocol: string) => CRDTBroadcaster |
 
 export const getSerializer: (crdt: CRDT, protocol: string) => CRDTSerializer | null =
 	createModuleGetter(toSerializable, crdt => crdt.getSerializers());
+
+const createModuleProtocolsGetter = <T extends CRDT, M extends CRDTSynchronizer | CRDTSerializer | CRDTBroadcaster>(
+	toType: (crdt: CRDT) => T | null,
+	getModuleIterable: (crdt: T) => Iterable<M>
+) => (crdt: CRDT): Iterable<string> => {
+	const asType = toType(crdt);
+
+	if (asType == null) {
+		return [];
+	}
+
+	return [...getModuleIterable(asType)].map(m => m.protocol);
+};
+
+export const getSynchronizerProtocols: (crdt: CRDT) => Iterable<string> =
+	createModuleProtocolsGetter(toSynchronizable, crdt => crdt.getSynchronizers());
+
+export const getSerializerProtocols: (crdt: CRDT) => Iterable<string> =
+	createModuleProtocolsGetter(toSerializable, crdt => crdt.getSerializers());
+
+export const getBroadcasterProtocols: (crdt: CRDT) => Iterable<string> =
+	createModuleProtocolsGetter(toBroadcastable, crdt => crdt.getBroadcasters());
