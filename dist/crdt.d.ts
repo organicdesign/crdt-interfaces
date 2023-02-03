@@ -8,33 +8,26 @@ export interface CRDTSynchronizer {
 }
 export type CreateSynchronizer<T extends CRDTSynchronizer = CRDTSynchronizer> = (components?: Record<string, unknown>) => T;
 export interface SynchronizableCRDT extends CRDT {
-    getSynchronizerProtocols(): Iterable<string>;
-    getSynchronizer(protocol: string): CRDTSynchronizer | undefined;
+    getSynchronizers(): Iterable<CRDTSynchronizer>;
 }
-export interface BroadcastData {
-    protocol: string;
-    data: Uint8Array;
-}
-export type BroadcastHandler = (data: BroadcastData) => void;
+export type BroadcastHandler = (data: Uint8Array) => void;
 export interface CRDTBroadcaster {
     protocol: string;
-    addBroadcaster(broadcaster: BroadcastHandler): void;
     onBroadcast: BroadcastHandler;
+    setBroadcast: (broadcast: BroadcastHandler) => void;
 }
-export type CreateBroadcaster<T extends CRDTBroadcaster = CRDTBroadcaster> = () => T;
+export type CreateBroadcaster<T extends CRDTBroadcaster = CRDTBroadcaster> = (components?: Record<string, unknown>) => T;
 export interface BroadcastableCRDT extends CRDT {
-    getBroadcastProtocols(): Iterable<string>;
-    getBroadcaster(protocol: string): CRDTBroadcaster | undefined;
+    getBroadcasters(): Iterable<CRDTBroadcaster>;
 }
 export interface CRDTSerializer {
     protocol: string;
     serialize(): Uint8Array;
     deserialize(data: Uint8Array): void;
 }
-export type CreateSeralizer<T extends CRDTSerializer = CRDTSerializer> = () => T;
+export type CreateSerializer<T extends CRDTSerializer = CRDTSerializer> = (components?: Record<string, unknown>) => T;
 export interface SerializableCRDT extends CRDT {
-    getSerializeProtocols(): Iterable<string>;
-    getSerializer(protocol: string): CRDTSerializer | undefined;
+    getSerializers(): Iterable<CRDTSerializer>;
 }
 export interface CRDT {
     id: Uint8Array;
@@ -45,6 +38,10 @@ export interface CRDTConfig {
     generateTimestamp?: () => number;
     synchronizers?: Iterable<CreateSynchronizer>;
     broadcasters?: Iterable<CreateBroadcaster>;
-    serializers?: Iterable<CreateSeralizer>;
+    serializers?: Iterable<CreateSerializer>;
 }
 export type CreateCRDT<T extends CRDT = CRDT> = (config: CRDTConfig) => T;
+export interface ProtocolData {
+    protocol: string;
+    data: Uint8Array;
+}

@@ -6,7 +6,7 @@ import type {
 	CRDTSynchronizer,
 	CRDTSerializer,
 	CRDTBroadcaster
-} from "./crdt";
+} from "./crdt.js";
 
 export const isSynchronizable = (crdt: CRDT): boolean => !!crdt["getSynchronizers"];
 
