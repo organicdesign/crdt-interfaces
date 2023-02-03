@@ -1,4 +1,4 @@
-## Unreleased
+## [4.0.0](https://github.com/organicdesign/crdt-interfaces/compare/v3.0.0...v4.0.0) (2023-02-03)
 
 ### Added
 
@@ -6,10 +6,27 @@
   * `CRDTSynchronizer`
   * `CRDTBroadcaster`
   * `CRDTSerializer`
+* CRDT module creation types:
+  * `CreateSynchronizer`
+  * `CreateSerializer`
+  * `CreateBroadcaster`
 * CRDT variations:
   * `SynchronizableCRDT`
   * `BroadcastableCRDT`
   * `SerializableCRDT`
+* CRDT helpers:
+  * `isSynchronizable`
+  * `isSerializable`
+  * `isBroadcastable`
+  * `toSynchronizable`
+  * `toSerializable`
+  * `toBroadcastable`
+  * `getSynchronizer`
+  * `getSerializer`
+  * `getBroadcaster`
+  * `getSynchronizerProtocols`
+  * `getSerializerProtocols`
+  * `getBroadcasterProtocols`
 
 ### Removed
 
