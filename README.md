@@ -14,6 +14,7 @@ Interfaces and types for various CRDTs to make compatibility between systems eas
     - [SynchronizableCRDT](#synchronizablecrdt)
     - [SerializableCRDT](#serializablecrdt)
     - [BroadcastableCRDT](#broadcastablecrdt)
+    - [CompleteCRDT](#completecrdt)
   - [CRDT Modules](#crdt-modules)
     - [CRDTSynchronizer](#crdtsynchronizer)
     - [CRDTSerializer](#crdtserializer)
@@ -120,6 +121,14 @@ import type { BroadcastableCRDT } from "@organicdesign/crdt-interfaces";
 ```
 
 The BroadcastableCRDT interface is an interface for a CRDT that can be synchronized over broadcast using broadcast protocols.
+
+#### CompleteCRDT
+
+```typescript
+import type { CompleteCRDT } from "@organicdesign/crdt-interfaces";
+```
+
+The CompleteCRDT interface is an interface for a CRDT that is a `SynchronizableCRDT`, `SerializableCRDT` and a `BroadcastableCRDT`.
 
 ### CRDT Modules
 
