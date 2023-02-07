@@ -89,7 +89,11 @@ This SyncContext interface is for additional data to be passed to synchronizers 
 
 ```typescript
 import type { CreateCRDT } from "@organicdesign/crdt-interfaces";
+
+CreateCRDT<T>
 ```
+
+- `T` `<CRDT>` The CRDT that it creates. Default: `CRDT`
 
 This type is for a general purpose CRDT generator function.
 
@@ -149,7 +153,12 @@ The CRDTBroadcaster interface defines a CRDT broadcast protocol. These protocols
 
 ```typescript
 import type { CreateSynchronizer } from "@organicdesign/crdt-interfaces";
+
+CreateSynchronizer<C, T>
 ```
+
+- `C` `<Object>` The synchronizer components. Default: `{}`
+- `T` `<CRDTSynchronizer>` The CRDT synchronizer that it creates. Default: `CRDTSynchronizer`
 
 The CreateSynchronizer interface is to make it easier to type CRDTSynchronizer creation methods.
 
@@ -157,7 +166,12 @@ The CreateSynchronizer interface is to make it easier to type CRDTSynchronizer c
 
 ```typescript
 import type { CreateSerializer } from "@organicdesign/crdt-interfaces";
+
+CreateSerializer<C, T>
 ```
+
+- `C` `<Object>` The serializer components. Default: `{}`
+- `T` `<CRDTSerializer>` The CRDT serializer that it creates. Default: `CRDTSerializer`
 
 The CreateSerializer interface is to make it easier to type CRDTSerializer creation methods.
 
@@ -165,7 +179,12 @@ The CreateSerializer interface is to make it easier to type CRDTSerializer creat
 
 ```typescript
 import type { CreateBroadcaster } from "@organicdesign/crdt-interfaces";
+
+CreateBroadcaster<C, T>
 ```
+
+- `C` `<Object>` The broadcaster components. Default: `{}`
+- `T` `<CRDTBroadcaster>` The CRDT broadcaster that it creates. Default: `CRDTBroadcaster`
 
 The CreateBroadcaster interface is to make it easier to type CRDTBroadcaster creation methods.
 
