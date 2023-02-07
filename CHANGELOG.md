@@ -1,4 +1,4 @@
-## [4.0.0](https://github.com/organicdesign/crdt-interfaces/compare/v3.0.0...v4.0.0) (2023-02-03)
+## [4.0.0](https://github.com/organicdesign/crdt-interfaces/compare/v3.0.0...v4.0.0) (2023-02-08)
 
 ### Added
 
@@ -14,6 +14,9 @@
   * `SynchronizableCRDT`
   * `BroadcastableCRDT`
   * `SerializableCRDT`
+* Other types:
+  * `ProtocolData`
+  * `CompleteCRDT`
 * CRDT helpers:
   * `isSynchronizable`
   * `isSerializable`
