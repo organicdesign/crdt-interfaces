@@ -69,3 +69,5 @@ export interface ProtocolData {
 }
 
 export type CRDTComponents<T extends Record<string, unknown>=Record<string, unknown>> = T
+
+export type CompleteCRDT = CRDT & SynchronizableCRDT & BroadcastableCRDT & SerializableCRDT
