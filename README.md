@@ -22,6 +22,7 @@ Interfaces and types for various CRDTs to make compatibility between systems eas
     - [CreateSynchronizer](#createsynchronizer)
     - [CreateSerializer](#createserializer)
     - [CreateBroadcaster](#createbroadcaster)
+    - [ProtocolData](#ProtocolData)
   - [Data Type Specific](#data-type-specific)
     - [MCounter](#mcounter)
     - [BCounter](#bcounter)
@@ -196,6 +197,13 @@ CreateBroadcaster<C, T>
 - `T` `<CRDTBroadcaster>` The CRDT broadcaster that it creates. Default: `CRDTBroadcaster`
 
 The CreateBroadcaster interface is to make it easier to type CRDTBroadcaster creation methods.
+
+#### ProtocolData
+```typescript
+import type { ProtocolData } from "@organicdesign/crdt-interfaces";
+```
+
+The ProtocolData interface is for bundling raw data returned by a protocol with the protocol string itself.
 
 ### Data Type Specific
 
