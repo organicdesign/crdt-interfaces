@@ -67,7 +67,13 @@ The CRDT interface is a generalized interface that provides the minimum methods 
 
 ```typescript
 import type { CRDTConfig } from "@organicdesign/crdt-interfaces";
+
+CRDTConfig<SyncComps, BroadComps, SerialComps>
 ```
+
+- `SyncComps` `<Object>` The synchronizer components. Default: `{}`
+- `BroadComps` `<Object>` The broadcaster components. Default: `{}`
+- `SerialComps` `<Object>` The serializer components. Default: `{}`
 
 This interface is a general purpose configuration object that many CRDTs will need to be created or instantiated.
 
