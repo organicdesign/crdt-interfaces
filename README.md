@@ -212,7 +212,11 @@ An interface for a counter that can increase and decrease such as PNCounter
 
 ```typescript
 import type { MSet } from "@organicdesign/crdt-interfaces";
+
+MSet<T>
 ```
+
+- `T` `<any>` The type of data the set holds.
 
 An interface based of the native Set type, modified for a grow only set such as GSet.
 
@@ -220,7 +224,11 @@ An interface based of the native Set type, modified for a grow only set such as 
 
 ```typescript
 import type { BSet } from "@organicdesign/crdt-interfaces";
+
+BSet<T>
 ```
+
+- `T` `<any>` The type of data the set holds.
 
 An interface based of the native Set type, modified for a set that can grow and shrink such as 2PSet or ORSet.
 
@@ -228,7 +236,11 @@ An interface based of the native Set type, modified for a set that can grow and 
 
 ```typescript
 import type { MMap } from "@organicdesign/crdt-interfaces";
+
+MMap<T>
 ```
+
+- `T` `<any>` The type of data the map holds.
 
 An interface based of the native Map type, modified for a map that can only assign key/value pairs such as CRDTMap.
 
@@ -236,7 +248,11 @@ An interface based of the native Map type, modified for a map that can only assi
 
 ```typescript
 import type { BMap } from "@organicdesign/crdt-interfaces";
+
+BMap<T>
 ```
+
+- `T` `<any>` The type of data the map holds.
 
 An interface based of the native Map type, modified for a map that can both assign and clear key/value pairs such as LWWMap.
 
@@ -244,7 +260,11 @@ An interface based of the native Map type, modified for a map that can both assi
 
 ```typescript
 import type { MVMap } from "@organicdesign/crdt-interfaces";
+
+MVMap<T>
 ```
+
+- `T` `<any>` The type of data the map holds.
 
 An interface based of the native Map type, modified for a map that can hold and return multiple values that are set at the same time.
 
@@ -252,7 +272,11 @@ An interface based of the native Map type, modified for a map that can hold and 
 
 ```typescript
 import type { BRegister } from "@organicdesign/crdt-interfaces";
+
+BRegister<T>
 ```
+
+- `T` `<any>` The type of data the register holds.
 
 An interface for a register.
 
@@ -260,7 +284,11 @@ An interface for a register.
 
 ```typescript
 import type { MVRegister } from "@organicdesign/crdt-interfaces";
+
+MVRegister<T>
 ```
+
+- `T` `<any>` The type of data the register holds.
 
 An interface for a multi-value register.
 
