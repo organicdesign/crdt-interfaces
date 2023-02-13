@@ -44,7 +44,7 @@ export interface CRDTConfig<SyncComps extends UMap = UMap, BroadComps extends UM
     broadcasters?: Iterable<CreateBroadcaster<BroadComps>>;
     serializers?: Iterable<CreateSerializer<SerialComps>>;
 }
-export type CreateCRDT<T extends CRDT = CRDT> = (config: CRDTConfig) => T;
+export type CreateCRDT<T extends CRDT = CRDT, Config extends CRDTConfig = CRDTConfig, Options extends {} = {}> = (config: Config, options?: Partial<Options>) => T;
 export interface ProtocolData {
     protocol: string;
     data: Uint8Array;

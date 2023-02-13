@@ -92,10 +92,12 @@ This SyncContext interface is for additional data to be passed to synchronizers 
 ```typescript
 import type { CreateCRDT } from "@organicdesign/crdt-interfaces";
 
-CreateCRDT<T>
+CreateCRDT<T, Config, Options>
 ```
 
 - `T` `<CRDT>` The CRDT that it creates. Default: `CRDT`
+- `Config` `<CRDTConfig>` The CRDTConfig that it uses. Default: `CRDTConfig`
+- `Options` `<{}>` The options that it uses. Default: `{}`
 
 This type is for a general purpose CRDT generator function.
 

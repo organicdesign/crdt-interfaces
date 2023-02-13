@@ -1,3 +1,9 @@
+## [5.1.0](https://github.com/organicdesign/crdt-interfaces/compare/v5.0.0...v5.1.0) (2023-02-14)
+
+### Changed
+
+* `CreateCRDT` type now has additional generic options.
+
 ## [5.0.0](https://github.com/organicdesign/crdt-interfaces/compare/v4.0.0...v5.0.0) (2023-02-13)
 
 ### Changed
