@@ -1,3 +1,12 @@
+## [4.0.0](https://github.com/organicdesign/crdt-interfaces/compare/v4.0.0...v5.0.0) (2023-02-13)
+
+### Changed
+
+* Added methods to the `CRDT` iterface:
+	* `isStarted`
+	* `start`
+	* `stop`
+
 ## [4.0.0](https://github.com/organicdesign/crdt-interfaces/compare/v3.0.0...v4.0.0) (2023-02-08)
 
 ### Added

@@ -49,6 +49,9 @@ export interface SerializableCRDT extends CRDT {
 // CRDT
 export interface CRDT {
 	id: Uint8Array
+	isStarted (): Boolean
+	start (): void | Promise<void>
+	stop (): void | Promise<void>
 	toValue (): unknown
 }
 

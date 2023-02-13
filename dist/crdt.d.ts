@@ -32,6 +32,9 @@ export interface SerializableCRDT extends CRDT {
 }
 export interface CRDT {
     id: Uint8Array;
+    isStarted(): Boolean;
+    start(): void | Promise<void>;
+    stop(): void | Promise<void>;
     toValue(): unknown;
 }
 export interface CRDTConfig<SyncComps extends UMap = UMap, BroadComps extends UMap = UMap, SerialComps extends UMap = UMap> {
